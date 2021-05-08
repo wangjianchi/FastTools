@@ -14,7 +14,7 @@ import java.io.IOException;
 /**
  * @author wangjc
  * date: 2021-05-08
- * description:
+ * description: 意向订单
  */
 public class HttpUtils {
     public static String doGet(String url) {

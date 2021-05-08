@@ -6,13 +6,16 @@ import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.SelectionModel;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
+import com.intellij.util.PairFunction;
 import com.wang.utils.HttpUtils;
+import com.wang.utils.StringUtils;
+import org.apache.http.util.TextUtils;
 import org.jetbrains.annotations.NotNull;
 
 /**
  * @author wangjc
  * date: 2021-05-08
- * description:
+ * description:生成
  */
 public class TranslateAction extends AnAction {
     @Override
@@ -27,7 +30,20 @@ public class TranslateAction extends AnAction {
         if (result.getErrorCode() == 0){
             String translateResult = result.getTranslateResult().get(0).get(0).getTgt();
                     Project project = anActionEvent.getData(PlatformDataKeys.PROJECT);
-        Messages.showInfoMessage(project,translateResult,translateResult);
+            if (!TextUtils.isEmpty(translateResult)) {
+                Messages.showDialog(project,StringUtils.captureStringLeaveUnderscore(translateResult),"Translate Result", new String[]{"OK"},0,null);
+            }
+//        Messages.showCheckboxMessageDialog(translateResult
+//                ,translateResult
+//        ,new String[]{"choose one","two","for"}
+//        ,""
+//        ,false
+//        ,0
+//        ,0
+//                ,null
+//        ,(exitCode, cb) -> {
+//                    return exitCode == -1 ? 2 : exitCode + (cb.isSelected() ? 1 : 0);
+//                });
 //            WriteCommandAction.runWriteCommandAction(anActionEvent.getProject(), new Runnable() {
 //                @Override
 //                public void run() {
