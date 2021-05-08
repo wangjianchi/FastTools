@@ -1,0 +1,39 @@
+<idea-plugin>
+  <id>com.wang.plugin.id</id>
+  <name>FastTools</name>
+  <version>1.0</version>
+  <vendor email="wlwangjc@163.com" url="http://www.neowang.com">NeoWang</vendor>
+
+  <description><![CDATA[
+     demo asdsdvvda is a good plugin wheere aaa <br>
+      <em>demo</em>
+    ]]></description>
+
+  <change-notes><![CDATA[
+      demo.<br>
+      <em>demo</em>
+    ]]>
+  </change-notes>
+
+  <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <depends>com.intellij.modules.platform</depends>
+  <depends>com.intellij.modules.lang</depends>
+  <depends>com.intellij.modules.java</depends>
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+
+      <action id="FastTools.Translate" class="com.wang.translate.TranslateAction" text="Translate" description="A test menu item">
+        <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+      </action>
+
+  </actions>
+
+</idea-plugin>
